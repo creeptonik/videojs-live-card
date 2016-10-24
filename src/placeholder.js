@@ -22,7 +22,7 @@ class LiveCardModal extends ModalDialog {
       //display error card if no stream found 
       var errNo = player.error().code;
       var duration = player.duration();
-      if (errNo == '4' && duration == '0') {
+      if ((errNo === 4 && duration === 0) || (errNo === 4 && duration === -1) || (errNo === 4 && duration === Infinity)){
         this.open();
         player.error(null);
       }
